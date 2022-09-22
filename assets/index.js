@@ -107,10 +107,12 @@ function date() {
       break;
   }
 
+
+
   document.getElementById(
     "date"
   ).innerText = `${today}, ${month} ${day} ${year}`;
-  console.log(`${today}, ${month} ${year}`);
+//   console.log(`${today}, ${month} ${year}`);
 }
 
 // function addMonthNameToNum(){
