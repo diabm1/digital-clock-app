@@ -1,6 +1,7 @@
 function init() {
   time();
   date();
+//   dayOfMonthSuffix();
 }
 
 // Clock should show the seconds update every one second (in other words it should seem as if the clock is ticking
@@ -16,8 +17,8 @@ function time() {
   hours = leadingZero(hours);
 
   let amOrPm = hours >= 12 ? "PM" : "AM";
-//   hours = hours % 12;
-//   hours = hours ? hours : 12;
+  //   hours = hours % 12;
+  //   hours = hours ? hours : 12;
 
   document.getElementById(
     "time"
@@ -108,28 +109,30 @@ function date() {
   }
 
   //date.getDate temp solution to the today variable issue
-  document.getElementById(
-    "date"
-  ).innerText = `${today}, ${month} ${date.getDate()} ${year}`;
+  document.getElementById("date").innerText = `${today}, ${month} ${
+   dayOfMonthSuffix(date.getDate())
+  } ${year}`;
   //   console.log(`${today}, ${month} ${year}`);
 }
 
-function dayOfMonthSuffix(numOfDayOfMonth) {
-    let date = new Date();
-    let today = date.getDate();
-    // if today ends with first add 'st' to end 
-    // if today ends with second add 'nd' to end 
-    // if today ends with third add 'rd' to end of today
-    // else add 'th' to end of today
-    // switch () {
-    //     case value:
-            
-    //         break;
-    
-    //     default:
-    //         break;
-    // }
+function dayOfMonthSuffix(d) {
+  let date = new Date();
+  d = date.getDate();
+  // if today ends with first add 'st' to end of today
+  // if today ends with second add 'nd' to end of today
+  // if today ends with third add 'rd' to end of today
+  // else add 'th' to end of today
 
+  let numToString = d.toString();
+  if (numToString.endsWith() == '1') {
+    return d + "st";
+  } else if (numToString.endsWith() == '2') {
+    return d + "nd";
+  } else if (numToString.endsWith() == '3') {
+    return d + "rd";
+  } else {
+    return d + "th";
+  }
 }
 
 init();
