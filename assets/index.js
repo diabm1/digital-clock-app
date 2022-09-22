@@ -16,8 +16,8 @@ function time() {
   hours = leadingZero(hours);
 
   let amOrPm = hours >= 12 ? "PM" : "AM";
-  hours = hours % 12;
-  hours = hours ? hours : 12;
+//   hours = hours % 12;
+//   hours = hours ? hours : 12;
 
   document.getElementById(
     "time"
@@ -44,29 +44,6 @@ function date() {
   let year = date.getFullYear();
   //   const current_date =
   //     date.getDate() + ", " + (date.getMonth() + 1) + " " + date.getFullYear();
-
-  switch (day) {
-    case 0:
-      today = "Sunday";
-      break;
-    case 1:
-      today = "Monday";
-      break;
-    case 2:
-      today = "Tuesday";
-      break;
-    case 3:
-      today = "Wednesday";
-      break;
-    case 4:
-      today = "Thursday";
-      break;
-    case 5:
-      today = "Friday";
-      break;
-    case 6:
-      today = "Saturday";
-  }
 
   switch (month) {
     case 1:
@@ -107,18 +84,52 @@ function date() {
       break;
   }
 
+  switch (day) {
+    case 0:
+      today = "Sunday";
+      break;
+    case 1:
+      today = "Monday";
+      break;
+    case 2:
+      today = "Tuesday";
+      break;
+    case 3:
+      today = "Wednesday";
+      break;
+    case 4:
+      today = "Thursday";
+      break;
+    case 5:
+      today = "Friday";
+      break;
+    case 6:
+      today = "Saturday";
+  }
 
-
+  //date.getDate temp solution to the today variable issue
   document.getElementById(
     "date"
-  ).innerText = `${today}, ${month} ${day} ${year}`;
-//   console.log(`${today}, ${month} ${year}`);
+  ).innerText = `${today}, ${month} ${date.getDate()} ${year}`;
+  //   console.log(`${today}, ${month} ${year}`);
 }
 
-// function addMonthNameToNum(){
-//     if(month == 9){
-//         month = "September"
-//       }
-// }
+function dayOfMonthSuffix(numOfDayOfMonth) {
+    let date = new Date();
+    let today = date.getDate();
+    // if today ends with first add 'st' to end 
+    // if today ends with second add 'nd' to end 
+    // if today ends with third add 'rd' to end of today
+    // else add 'th' to end of today
+    // switch () {
+    //     case value:
+            
+    //         break;
+    
+    //     default:
+    //         break;
+    // }
+
+}
 
 init();
