@@ -1,7 +1,7 @@
 function init() {
   time();
   date();
-//   dayOfMonthSuffix();
+  //   dayOfMonthSuffix();
 }
 
 // Clock should show the seconds update every one second (in other words it should seem as if the clock is ticking
@@ -109,9 +109,11 @@ function date() {
   }
 
   //date.getDate temp solution to the today variable issue
-  document.getElementById("date").innerText = `${today}, ${month} ${
-   dayOfMonthSuffix(date.getDate())
-  } ${year}`;
+  document.getElementById(
+    "date"
+  ).innerText = `${today}, ${month} ${dayOfMonthSuffix(
+    date.getDate()
+  )} ${year}`;
   //   console.log(`${today}, ${month} ${year}`);
 }
 
@@ -124,15 +126,26 @@ function dayOfMonthSuffix(d) {
   // else add 'th' to end of today
 
   let numToString = d.toString();
-  if (numToString.endsWith() == '1') {
+
+  if (numToString.endsWith("1")) {
+    if (numToString === "11") {
+      return num + "th";
+    }
     return d + "st";
-  } else if (numToString.endsWith() == '2') {
+  } else if (numToString.endsWith("2")) {
+    if (numToString === "12") {
+      return num + "th";
+    }
     return d + "nd";
-  } else if (numToString.endsWith() == '3') {
+  } else if (numToString.endsWith("3")) {
+    if (numToString === "13") {
+      return num + "th";
+    }
     return d + "rd";
   } else {
     return d + "th";
   }
+  //another way I was thinking of doing this was to convert num to string and split string and place individual chars in their own vars and then just checking the second var in each if condition
 }
 
 init();
