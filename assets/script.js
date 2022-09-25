@@ -17,8 +17,8 @@ function time() {
   hours = leadingZero(hours);
 
   let amOrPm = hours >= 12 ? "PM" : "AM";
-  //   hours = hours % 12;
-  //   hours = hours ? hours : 12;
+  hours = hours % 12;
+  hours = hours ? hours : 12;
 
   document.getElementById(
     "time"
