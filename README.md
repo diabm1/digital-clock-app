@@ -13,6 +13,8 @@ This is an application that generates local time and date.
 - Clone repo from Github
 
 ## Usage 
+### Deployed link:
+https://diabm1.github.io/digital-clock-app/
 <img src="assets/img/localhost_5500_digital-clock-app_.png">
 
 ## Contributing 
